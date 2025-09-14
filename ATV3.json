@@ -8,11 +8,6 @@
       "tag": "socks",
       "listen": "::1",
       "listen_port": 1080,
-      "sniffing": {
-        "enabled": true,
-        "dest_override": ["http", "quic", "tls"],
-        "route_only": false
-      },
       "socks_settings": {
         "udp": true
       }
