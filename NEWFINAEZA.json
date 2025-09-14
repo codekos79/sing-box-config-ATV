@@ -1,0 +1,91 @@
+{
+  "inbounds" : [
+    {
+      "sniffing" : {
+        "destOverride" : [
+          "quic",
+          "http",
+          "tls"
+        ],
+        "enabled" : true,
+        "routeOnly" : false
+      },
+      "listen" : "[::1]",
+      "settings" : {
+        "udp" : true
+      },
+      "protocol" : "socks",
+      "tag" : "socks",
+      "port" : 1080
+    }
+  ],
+  "policy" : {
+    "system" : {
+      "statsInboundUplink" : true,
+      "statsOutboundDownlink" : true,
+      "statsInboundDownlink" : true,
+      "statsOutboundUplink" : true
+    }
+  },
+  "id" : "32CEA4A1-49DD-4025-8070-FBC76C3F16B9",
+  "stats" : {
+
+  },
+  "log" : {
+    "loglevel" : "info"
+  },
+  "remarks" : "🚀 Marz (ATV2) [VLESS - tcp]",
+  "outbounds" : [
+    {
+      "settings" : {
+        "vnext" : [
+          {
+            "port" : 443,
+            "address" : "38.180.83.40",
+            "users" : [
+              {
+                "id" : "80fba0ee-dbf4-4963-b01d-166c0504bc94",
+                "encryption" : "none",
+                "flow" : "xtls-rprx-vision"
+              }
+            ]
+          }
+        ]
+      },
+      "protocol" : "vless",
+      "streamSettings" : {
+        "tcpSettings" : {
+          "header" : {
+            "type" : "none"
+          }
+        },
+        "network" : "tcp",
+        "security" : "reality",
+        "realitySettings" : {
+          "fingerprint" : "chrome",
+          "serverName" : "github.com",
+          "spiderX" : "",
+          "publicKey" : "4XYs7k0O2J3PAA2CbW9B9hmIV8heLUs-hFc8sR3UIWY",
+          "shortId" : "ffa0503248b89c47"
+        }
+      },
+      "tag" : "proxy"
+    },
+    {
+      "settings" : {
+        "response" : {
+          "type" : "none"
+        }
+      },
+      "protocol" : "blackhole",
+      "tag" : "block"
+    },
+    {
+      "settings" : {
+
+      },
+      "protocol" : "freedom",
+      "tag" : "direct"
+    }
+  ]
+}
