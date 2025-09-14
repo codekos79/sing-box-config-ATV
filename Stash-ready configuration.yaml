@@ -1,0 +1,30 @@
+# Stash-ready configuration
+port: 1080
+socks-port: 1080
+allow-lan: false
+mode: Rule
+log-level: info
+
+proxies:
+  - name: "Marz VLESS Reality"
+    type: vless
+    server: 38.180.83.40
+    port: 443
+    uuid: e256a488-c097-48b9-b960-eba662aebadd
+    flow: xtls-rprx-vision
+    network: tcp
+    tls: true
+    sni: github.com
+    reality:
+      public-key: 4XYs7k0O2J3PAA2CbW9B9hmIV8heLUs-hFc8sR3UIWY
+      short-id: ffa0503248b89c47
+      fingerprint: chrome
+
+proxy-groups:
+  - name: "Auto"
+    type: select
+    proxies:
+      - "Marz VLESS Reality"
+
+rules:
+  - MATCH,Auto
