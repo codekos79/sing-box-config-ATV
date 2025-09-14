@@ -1,0 +1,60 @@
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "socks",
+      "tag": "socks",
+      "listen": "::1",
+      "listen_port": 1080,
+      "udp": true,
+      "sniffing": {
+        "enabled": true,
+        "dest_override": ["http", "quic", "tls"],
+        "route_only": false
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "vless",
+      "tag": "proxy",
+      "server": "38.180.83.40",
+      "port": 443,
+      "uuid": "e256a488-c097-48b9-b960-eba662aebadd",
+      "flow": "xtls-rprx-vision",
+      "security": "reality",
+      "reality": {
+        "public_key": "4XYs7k0O2J3PAA2CbW9B9hmIV8heLUs-hFc8sR3UIWY",
+        "server_name": "github.com",
+        "short_id": "ffa0503248b89c47",
+        "fingerprint": "chrome",
+        "spiderx": ""
+      },
+      "network": "tcp"
+    },
+    {
+      "type": "blackhole",
+      "tag": "block"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    }
+  ],
+  "dns": {
+    "servers": ["1.1.1.1", "8.8.8.8"],
+    "query_strategy": "UseIPv4",
+    "disable_cache": false
+  },
+  "policy": {
+    "system": {
+      "stats_outbound_uplink": true,
+      "stats_outbound_downlink": true,
+      "stats_inbound_uplink": true,
+      "stats_inbound_downlink": true
+    }
+  },
+  "remarks": "🚀 Marz (appusa) [VLESS - tcp]"
+}
