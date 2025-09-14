@@ -1,0 +1,42 @@
+log:
+  level: info
+
+dns:
+  servers:
+    - address: 1.1.1.1
+    - address: 8.8.8.8
+  strategy: ipv4_only
+
+inbounds:
+  - type: socks
+    tag: socks
+    listen: "::1"
+    listen_port: 1080
+
+outbounds:
+  - type: vless
+    tag: proxy
+    server: 38.180.83.40
+    server_port: 443
+    uuid: e256a488-c097-48b9-b960-eba662aebadd
+    flow: xtls-rprx-vision
+    packet_encoding: none
+    tls:
+      enabled: true
+      server_name: github.com
+      utls:
+        enabled: true
+        fingerprint: chrome
+      reality:
+        enabled: true
+        public_key: 4XYs7k0O2J3PAA2CbW9B9hmIV8heLUs-hFc8sR3UIWY
+        short_id: ffa0503248b89c47
+
+  - type: direct
+    tag: direct
+
+  - type: block
+    tag: block
+
+route:
+  rules: []
